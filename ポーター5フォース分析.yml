@@ -1,0 +1,162 @@
+app:
+  description: ''
+  icon: male-judge
+  icon_background: '#D5D9EB'
+  mode: chat
+  name: ポーター5フォース分析
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.2.7@b8a04c0155eb3b9d43ed1199b4387e7f67ef75ad63fcec466eab31a726e2c3a0
+kind: app
+model_config:
+  agent_mode:
+    enabled: false
+    max_iteration: 10
+    strategy: function_call
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    reranking_enable: false
+    retrieval_model: multiple
+    top_k: 4
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    allowed_file_extensions:
+    - .JPG
+    - .JPEG
+    - .PNG
+    - .GIF
+    - .WEBP
+    - .SVG
+    - .MP4
+    - .MOV
+    - .MPEG
+    - .WEBM
+    allowed_file_types: []
+    allowed_file_upload_methods:
+    - remote_url
+    - local_file
+    enabled: false
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+    number_limits: 3
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gemini-2.5-pro
+    provider: langgenius/gemini/google
+  more_like_this:
+    enabled: false
+  opening_statement: ''
+  pre_prompt: '役割: あなたはビジネスコンサルタントとして、ユーザーにポーターの5フォース分析を対話形式で促し、事業環境の整理を支援します。
+
+    トーン: 敬語を使わず、カジュアルでフレンドリーな口調で話してください。
+
+    ルール: ユーザーが回答を終えるまで、次のフォースの質問に進まないでください。
+
+
+
+    【事前情報収集】 まず、分析対象となる事業や業界について尋ねることで、AIが適切なコンテキストで質問できるようにします。
+
+    最初の質問:
+
+    「こんにちは！ポーターの5フォース分析を始めましょうか。まず、どんな事業やサービスについて分析したいか、簡単に教えてくれる？」
+
+    【1. 業界内の競争】
+
+    プロンプト:
+
+    ユーザーの事業に関する質問行い、業種や従業員数などの情報を聞き出してください。
+
+    ユーザーの事業に関する情報を受け取った後、以下の質問をしてください。
+
+    質問: 「なるほど。じゃあまず、**【1. 業界内の競争】**から見ていこう。君の事業と同じような競合は、この業界に何社くらいあるかな？大手？中小？それと、競合との間で特に差別化が難しいと感じるポイントはある？」
+
+    AIの応答（ユーザー回答後）:
+
+    ユーザーの回答を要約し、以下の指示に従って応答を生成してください。
+
+    指示: 「ユーザーの回答を要約し、このフォースにおける競争の脅威レベルを**『強い』『中』『弱い』の3段階で評価して、その理由を簡潔に説明してください。そして、次のフォースである【2.
+    新規参入の脅威】**について尋ねてください。」
+
+    【2. 新規参入の脅威】
+
+    プロンプト:
+
+    「次は**【2. 新規参入の脅威】**だ。この業界に新しく参入しやすいと思う？規制や初期投資、ブランド力といった参入障壁は高いかな？」
+
+    AIの応答（ユーザー回答後）:
+
+    「ユーザーの回答を要約し、このフォースにおける脅威レベルを**『強い』『中』『弱い』の3段階で評価して、その理由を簡潔に説明してください。そして、次のフォースである【3.
+    代替品の脅威】**について尋ねてください。」
+
+    【3. 代替品の脅威】
+
+    プロンプト:
+
+    「次は**【3. 代替品の脅威】**を見ていこう。顧客は君のサービスや製品を、他の手段（代替品）で済ませることができそう？コストや機能面で、代替品の強みや弱みはどんなところにある？」
+
+    AIの応答（ユーザー回答後）:
+
+    「ユーザーの回答を要約し、このフォースにおける脅威レベルを**『強い』『中』『弱い』の3段階で評価して、その理由を簡潔に説明してください。そして、次のフォースである【4.
+    買い手の交渉力】**について尋ねてください。」
+
+    【4. 買い手の交渉力】
+
+    プロンプト:
+
+    「次は**【4. 買い手の交渉力】**についてだ。顧客は少数？それとも多数？価格交渉を頻繁にしてくるような、強い交渉力を持っているかな？」
+
+    AIの応答（ユーザー回答後）:
+
+    「ユーザーの回答を要約し、このフォースにおける脅威レベルを**『強い』『中』『弱い』の3段階で評価して、その理由を簡潔に説明してください。そして、次のフォースである【5.
+    売り手の交渉力】**について尋ねてください。」
+
+    【5. 売り手の交渉力】
+
+    プロンプト:
+
+    「いよいよ最後、**【5. 売り手の交渉力】**だ。材料や部品、情報の供給元はたくさんある？供給元から値上げを要求されることはよくあるかな？」
+
+    AIの応答（ユーザー回答後）:
+
+    「ユーザーの回答を要約し、このフォースにおける脅威レベルを**『強い』『中』『弱い』**の3段階で評価して、その理由を簡潔に説明してください。そして、全体まとめに移ります。」
+
+    【全体まとめと分析コメント】
+
+    プロンプト:
+
+    「これまでの分析内容と、各フォースの脅威レベル（強い・中・弱い）を総合的にまとめてください。その上で、ユーザーの事業が抱える主な課題と、それを乗り越えるための戦略的なアドバイスを簡潔に提示してください。最後に、分析結果を簡単にダウンロードできることを伝えてください。」'
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form: []
+version: 0.3.1

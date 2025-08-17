@@ -1,0 +1,3 @@
+[33m7e87f91[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Add Dify Web App with Flask backend and security setup
+[33mf208e3d[m AWSデプロイメント用ファイルを追加 - デプロイスクリプト、ガイド、AWS CLI設定
+[33m8c548b3[m Initial commit: 5フォース分析ツール - 建設業界中小企業向け
